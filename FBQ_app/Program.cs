@@ -60,6 +60,8 @@ namespace FBQ_app
 
         private static void Main(string[] args)
         {
+            #region Example
+
             //TransactionBuilder tb = new TransactionBuilder();
             //Transaction transaction = tb.To("Denys")
             //    .WithAmount(100)
@@ -70,14 +72,19 @@ namespace FBQ_app
             //    .WithAmount(100)
             //    .GetTransaction();
 
+            #endregion Example
+
             Transaction transaction = new TransactionGetter("Denys")
                 .WithAmount(100)
                 .GetTransaction();
 
-            Transaction newTransaction = new TransactionGetter("Boryhin").WithAmount(1000).GetTransaction();
-
             Console.WriteLine(transaction.To);
             Console.WriteLine(transaction.Amount);
+
+            Transaction newTransactionTest = new Transaction(1000, "Me");
+
+            Console.WriteLine(newTransactionTest.To);
+            Console.WriteLine(newTransactionTest.Amount);
         }
     }
 }
